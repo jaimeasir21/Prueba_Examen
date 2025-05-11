@@ -56,23 +56,23 @@ jobs:
   #         push: true
   #         tags: ${{ secrets.DH_USUARIO }}/${{ env.IMAGE_NAME }}
 
-  # deploy:
-  #   name: deploy en AWS
-  #   runs-on: ubuntu-latest
-  #   needs: build_and_push
-  #   steps:
-  #     - name: multiple command
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.AWS_HOSTNAME }}
-  #         username: ${{ secrets.AWS_USERNAME }}
-  #         key: ${{ secrets.AWS_PRIVATEKEY }}
-  #         port: 22 # ${{ secrets.PORT }}
-  #         script: |
-  #           sleep 30
-  #           docker rm -f web1
-  #           docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
-  #           docker run -d -p 80:5000 --name web1 ${{secrets.DOCKERHUB_USERNAME}}/${{env.IMAGE_NAME}}
+  deploy:
+    name: deploy en AWS
+    runs-on: ubuntu-latest
+    needs: build_and_push
+    steps:
+      - name: multiple command
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOSTNAME }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_PRIVATEKEY }}
+          port: 22 # ${{ secrets.PORT }}
+          script: |
+            sleep 30
+            docker rm -f web1
+            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
+            docker run -d -p 80:5000 --name web1 ${{secrets.DOCKERHUB_USERNAME}}/${{env.IMAGE_NAME}}
 
 
 
