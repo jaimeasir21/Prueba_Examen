@@ -28,7 +28,7 @@ $ curl localhost:8000
 {"greeting":"Hello world"}
 $ curl localhost:8000/students/1
 {"id":1,"name":"Ana","age":44}
-$ 
+$
 ```
 
    
