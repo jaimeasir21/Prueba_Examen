@@ -20,9 +20,9 @@ jobs:
       - name: multiple command
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.AMZ_HOSTNAME }}
-          username: ${{ secrets.AMZ_USERNAME }}
-          key: ${{ secrets.AMZ_PRIVATEKEY }}
+          host: ${{ secrets.AMZ_IP }}
+          username: ${{ secrets.AMZ_USUARIO }}
+          key: ${{ secrets.AMZ_CLAVE }}
           port: 22 # ${{ secrets.PORT }}
           script: |
             docker rm -f web1
