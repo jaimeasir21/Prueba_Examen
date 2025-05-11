@@ -47,14 +47,14 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DH_USERNAME }}
+          username: ${{ secrets.DH_USUARIO }}
           password: ${{ secrets.DH_TOKEN }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: ${{ secrets.DH_USERNAME }}/${{ env.IMAGE_NAME }}
+          tags: ${{ secrets.DH_USUARIO }}/${{ env.IMAGE_NAME }}
 
   # deploy:
   #   name: deploy en AWS
