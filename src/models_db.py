@@ -1,5 +1,5 @@
 '''
-docstring del módulo 
+docstring del módulo
 '''
 
 from sqlalchemy import Column, Integer, String

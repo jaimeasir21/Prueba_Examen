@@ -1,5 +1,5 @@
 '''
-docstring del módulo 
+docstring del módulo
 '''
 
 from fastapi import FastAPI, HTTPException
@@ -14,10 +14,10 @@ db.Base.metadata.create_all(db.engine)
 # lista = [("Ana", 44), ("Ricardo", 37), ("Marina", 32)]
 # for x in lista:
 #     db.session.add(Student(x[0], x[1]))
-# db.session.commit() 
+# db.session.commit()
 
 
-# devuelve la consulta si existe 
+# devuelve la consulta si existe
 def student_check(student_id):
     res = db.session.query(Student).get(student_id)
     if not res:
@@ -31,17 +31,20 @@ app = FastAPI()
 
 @app.get('/')
 def hello():
-    return {"greeting":"Hello world"}
+    return {"greeting": "Hello world"}
+
 
 @app.get('/status')
 def status():
-    return {"status":"ok"}
+    return {"status": "ok"}
+
 
 @app.get('/students/', response_model=list[schemas.StudentOut])
 def user_list():
-    noseusa = 100
+    # noseusa = 100
     res = db.session.query(Student).all()
     return res
+
 
 @app.post('/students/', response_model=schemas.StudentOut)
 def user_add(alu: schemas.StudentIn):
