@@ -1,5 +1,5 @@
 '''
-docstring del módulo 
+docstring del módulo
 '''
 
 from pydantic import BaseModel, ConfigDict
