@@ -4,7 +4,6 @@ env:
   IMAGE_NAME: galeria
   # FILES: compose.yml
 
-# prueba_2
 
 # GitHub Secrets
 # DOCKERHUB_USERNAME
